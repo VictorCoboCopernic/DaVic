@@ -50,63 +50,91 @@ let insertar = document.getElementById("insertar");
 let actualizar = document.getElementById("actualizar");
 
 var tabla = document.createElement("table");
+taula.appendChild(tabla);
+
 var seccion = document.createElement("tr");
-var seccionid = document.createElement("td");
-var seccionidcontent = document.createTextNode("ID");
-var seccionname = document.createElement("td");
-var seccionnamecontent = document.createTextNode("NOMBRE");
-var secciontitle = document.createElement("td");
-var secciontitlecontent = document.createTextNode("TITULO");
-var seccionhp = document.createElement("td");
-var seccionhpcontent = document.createTextNode("HP");
-var seccionrol = document.createElement("td");
-var seccionrolcontent = document.createTextNode("ROL");
-var seccionimagen = document.createElement("td");
-var seccionimagencontent = document.createTextNode("IMAGEN");
-var ash = document.createElement("tr");
-var ashid = document.createElement("td");
-var ashidcontent = document.createTextNode("1");
-var ashname = document.createElement("td");
-var ashnamecontent = document.createTextNode("Ash");
-var ashtitle = document.createElement("td");
-var ashtitlecontent = document.createTextNode("La Maquina de Guerra");
-var ashhp = document.createElement("td");
-var ashhpcontent = document.createTextNode(4500);
-var ashrol = document.createElement("td");
-var ashrolcontent = document.createTextNode("Tanque");
-var ashimagen = document.createElement("td");
-var ashimagencontent = document.createTextNode("IMAGEN");
-
-seccionid.appendChild(seccionidcontent);
-seccionname.appendChild(seccionnamecontent);
-secciontitle.appendChild(secciontitlecontent);
-seccionhp.appendChild(seccionhpcontent);
-seccionrol.appendChild(seccionrolcontent);
-seccionimagen.appendChild(seccionimagencontent);
-
-seccion.appendChild(seccionid);
-seccion.appendChild(seccionname);
-seccion.appendChild(secciontitle);
-seccion.appendChild(seccionhp);
-seccion.appendChild(seccionrol);
-seccion.appendChild(seccionimagen);
-
 tabla.appendChild(seccion);
 
-ashid.appendChild(ashidcontent);
-ashname.appendChild(ashnamecontent);
-ashtitle.appendChild(ashtitlecontent);
-ashhp.appendChild(ashhpcontent);
-ashrol.appendChild(ashrolcontent);
-ashimagen.appendChild(ashimagencontent);
+var seccionid = document.createElement("td");
+seccion.appendChild(seccionid);
 
-ash.appendChild(ashid);
-ash.appendChild(ashname);
-ash.appendChild(ashtitle);
-ash.appendChild(ashhp);
-ash.appendChild(ashrol);
-ash.appendChild(ashimagen);
+var seccionidcontent = document.createTextNode("ID");
+seccionid.appendChild(seccionidcontent);
 
+var seccionname = document.createElement("td");
+seccion.appendChild(seccionname);
+
+var seccionnamecontent = document.createTextNode("NOMBRE");
+seccionname.appendChild(seccionnamecontent);
+
+var secciontitle = document.createElement("td");
+seccion.appendChild(secciontitle);
+
+var secciontitlecontent = document.createTextNode("TITULO");
+secciontitle.appendChild(secciontitlecontent);
+
+var seccionhp = document.createElement("td");
+seccion.appendChild(seccionhp);
+
+var seccionhpcontent = document.createTextNode("HP");
+seccionhp.appendChild(seccionhpcontent);
+
+var seccionrol = document.createElement("td");
+seccion.appendChild(seccionrol);
+
+var seccionrolcontent = document.createTextNode("ROL");
+seccionrol.appendChild(seccionrolcontent);
+
+var seccionimagen = document.createElement("td");
+seccion.appendChild(seccionimagen);
+
+var seccionimagencontent = document.createTextNode("IMAGEN");
+seccionimagen.appendChild(seccionimagencontent);
+
+var ash = document.createElement("tr");
 tabla.appendChild(ash);
 
-taula.appendChild(tabla);
+var ashid = document.createElement("td");
+ash.appendChild(ashid);
+
+var ashidcontent = document.createTextNode("1");
+ashid.appendChild(ashidcontent);
+
+var ashname = document.createElement("td");
+ash.appendChild(ashname);
+
+var ashnamecontent = document.createTextNode("Ash");
+ashname.appendChild(ashnamecontent);
+
+var ashtitle = document.createElement("td");
+ash.appendChild(ashtitle);
+
+var ashtitlecontent = document.createTextNode("La Maquina de Guerra");
+ashtitle.appendChild(ashtitlecontent);
+
+var ashhp = document.createElement("td");
+ash.appendChild(ashhp);
+
+var ashhpcontent = document.createTextNode(4500);
+ashhp.appendChild(ashhpcontent);
+
+var ashrol = document.createElement("td");
+ash.appendChild(ashrol);
+
+var ashrolcontent = document.createTextNode("Tanque");
+ashrol.appendChild(ashrolcontent);
+
+var ashimagen = document.createElement("td");
+ash.appendChild(ashimagen);
+
+var ashimagencontent = document.createTextNode("IMAGEN");
+ashimagen.appendChild(ashimagencontent);
+
+
+
+
+
+
+
+
+
