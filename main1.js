@@ -49,8 +49,8 @@ let taula = document.getElementById("taula");
 let insertar = document.getElementById("insertar");
 let actualizar = document.getElementById("actualizar");
 
-function eliminar (i) {
-    campeones.splice (i, i);
+function eliminar () {
+    console.log("Hola");
 }
 
 function modificar (i) {
@@ -73,7 +73,7 @@ function mostrarTaula () {
             dibujarTabla += "<td>" + campeones[i].rol + "</td>";
             dibujarTabla += "<td> <img src=" + campeones[i].imagen + " style='width:100px;height:100px;'> </td>";
             dibujarTabla += "<td>";
-            dibujarTabla += "<button onclick='eliminar(i)'>Eliminar</button>";
+            dibujarTabla += "<button onclick='eliminar()'>Eliminar</button>";
             dibujarTabla += "</td>";
             dibujarTabla += "<td>";
             dibujarTabla += "<button onclick='modificar()'>Modificar</button>";
