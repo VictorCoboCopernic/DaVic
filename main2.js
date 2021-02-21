@@ -1,5 +1,3 @@
-
-let nocampeones = [];
 let campeones = [
     {
         id: 1,
@@ -43,98 +41,68 @@ let campeones = [
     }, 
 ];
 
-let contador = campeones[campeones.length - 1].id + 1;
-
-let taula = document.getElementById("taula");
-let insertar = document.getElementById("insertar");
-let actualizar = document.getElementById("actualizar");
-
 var tabla = document.createElement("table");
 taula.appendChild(tabla);
 
-var seccion = document.createElement("tr");
-tabla.appendChild(seccion);
+var r0_0c = document.createTextNode("ID");
+var r0_1c = document.createTextNode("NOMBRE");
+var r0_2c = document.createTextNode("TITULO");
+var r0_3c = document.createTextNode("HP");
+var r0_4c = document.createTextNode("ROL");
+var r0_5c = document.createTextNode("IMAGEN");
+var r0_6c = document.createTextNode("MODIFICAR");
+var r0_7c = document.createTextNode("ELIMINAR");
+updateTabla();
 
-var seccionid = document.createElement("td");
-seccion.appendChild(seccionid);
+function updateTabla (){
+    
+    tabla.innerHTML = '';
+    
+    let contador = campeones.length;
+    
+    for (let i = 0; i < (contador+1); i++){
+        eval('var r' + i + '= document.createElement("tr");');
+        tabla.appendChild(eval('r'+i));
+        for (let j = 0; j < 8; j++){
+            eval('var r' + i + '_' + j +'= document.createElement("td");');
+            eval('r'+i).appendChild(eval('r' + i +'_' + j));
+        }
+        
+    }
 
-var seccionidcontent = document.createTextNode("ID");
-seccionid.appendChild(seccionidcontent);
+    //<button onclick="partida.abandono()" class="BotonAbandona ">ABANDONA</button>
 
-var seccionname = document.createElement("td");
-seccion.appendChild(seccionname);
+    for (let i = 0; i < contador; i++){
+        
+        eval('var r' + (i+1) + '_0c = document.createTextNode(campeones[i].id);');
+        eval('var r' + (i+1) + '_1c = document.createTextNode(campeones[i].nombre);');
+        eval('var r' + (i+1) + '_2c = document.createTextNode(campeones[i].titulo);');
+        eval('var r' + (i+1) + '_3c = document.createTextNode(campeones[i].HP);');
+        eval('var r' + (i+1) + '_4c = document.createTextNode(campeones[i].rol);');
+        eval('var r' + (i+1) + '_5c = document.createElement("img");');
+        
+        eval('r' + (i+1) + '_5').appendChild(eval('r' + (i+1) + '_5c'));
+        eval('r' + (i+1) + '_5c').setAttribute("width", "75");
+        eval('r' + (i+1) +'_5c').setAttribute("src", campeones[i].imagen);
+        
+        eval('var r' + (i+1) + '_6c = document.createElement("button");');
+        eval('r' + (i+1) + '_6c').innerHTML = "Modificar";
+        eval('r' + (i+1) + '_6c').id=i;
+        eval('r' + (i+1) + '_6c').addEventListener ("click", function() {
+        });  
+        
+        eval('var r' + (i+1) + '_7c = document.createElement("button");');
+        eval('r' + (i+1) + '_7c').innerHTML = "Eliminar",;
+        eval('r' + (i+1) + '_7c').id=i;
+        eval('r' + (i+1) + '_7c').addEventListener ("click", function() {
+            campeones.splice(this.id,1);
+            updateTabla();
+        });
+    }
 
-var seccionnamecontent = document.createTextNode("NOMBRE");
-seccionname.appendChild(seccionnamecontent);
-
-var secciontitle = document.createElement("td");
-seccion.appendChild(secciontitle);
-
-var secciontitlecontent = document.createTextNode("TITULO");
-secciontitle.appendChild(secciontitlecontent);
-
-var seccionhp = document.createElement("td");
-seccion.appendChild(seccionhp);
-
-var seccionhpcontent = document.createTextNode("HP");
-seccionhp.appendChild(seccionhpcontent);
-
-var seccionrol = document.createElement("td");
-seccion.appendChild(seccionrol);
-
-var seccionrolcontent = document.createTextNode("ROL");
-seccionrol.appendChild(seccionrolcontent);
-
-var seccionimagen = document.createElement("td");
-seccion.appendChild(seccionimagen);
-
-var seccionimagencontent = document.createTextNode("IMAGEN");
-seccionimagen.appendChild(seccionimagencontent);
-
-var ash = document.createElement("tr");
-tabla.appendChild(ash);
-
-var ashid = document.createElement("td");
-ash.appendChild(ashid);
-
-var ashidcontent = document.createTextNode("1");
-ashid.appendChild(ashidcontent);
-
-var ashname = document.createElement("td");
-ash.appendChild(ashname);
-
-var ashnamecontent = document.createTextNode("Ash");
-ashname.appendChild(ashnamecontent);
-
-var ashtitle = document.createElement("td");
-ash.appendChild(ashtitle);
-
-var ashtitlecontent = document.createTextNode("La Maquina de Guerra");
-ashtitle.appendChild(ashtitlecontent);
-
-var ashhp = document.createElement("td");
-ash.appendChild(ashhp);
-
-var ashhpcontent = document.createTextNode(4500);
-ashhp.appendChild(ashhpcontent);
-
-var ashrol = document.createElement("td");
-ash.appendChild(ashrol);
-
-var ashrolcontent = document.createTextNode("Tanque");
-ashrol.appendChild(ashrolcontent);
-
-var ashimagen = document.createElement("td");
-ash.appendChild(ashimagen);
-
-var ashimagencontent = document.createTextNode("IMAGEN");
-ashimagen.appendChild(ashimagencontent);
-
-
-
-
-
-
-
-
-
+    for (let i = 0; i < (contador+1); i++){
+        for (let j = 0; j < 8; j++){
+            eval('r' + i +'_' + j).appendChild(eval('r' + i + '_' + j + 'c'));
+        }
+    }
+}
