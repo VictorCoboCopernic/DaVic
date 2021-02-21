@@ -92,7 +92,7 @@ function updateTabla (){
         });  
         
         eval('var r' + (i+1) + '_7c = document.createElement("button");');
-        eval('r' + (i+1) + '_7c').innerHTML = "Eliminar",;
+        eval('r' + (i+1) + '_7c').innerHTML = "Eliminar";
         eval('r' + (i+1) + '_7c').id=i;
         eval('r' + (i+1) + '_7c').addEventListener ("click", function() {
             campeones.splice(this.id,1);
