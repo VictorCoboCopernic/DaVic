@@ -106,3 +106,40 @@ function updateTabla (){
         }
     }
 }
+
+var CrearFormulario = document.createElement("form");
+insertar.appendChild(CrearFormulario);
+
+var inputNombre = document.createElement("input");
+inputNombre.setAttribute("type", "text");
+inputNombre.setAttribute("id", "nombre");
+CrearFormulario.appendChild(inputNombre);
+
+var inputTitulo = document.createElement("input");
+inputTitulo.setAttribute("type", "text");
+inputTitulo.setAttribute("id", "titulo");
+CrearFormulario.appendChild(inputTitulo);
+
+var inputHp = document.createElement("input");
+inputHp.setAttribute("type", "text");
+inputHp.setAttribute("id", "hp");
+CrearFormulario.appendChild(inputHp);
+
+var inputRol = document.createElement("input");
+inputRol.setAttribute("type", "text");
+inputRol.setAttribute("id", "rol");
+CrearFormulario.appendChild(inputRol);
+
+var inputImagen = document.createElement("input");
+inputImagen.setAttribute("type", "file");
+inputImagen.setAttribute("id", "imagen");
+inputImagen.setAttribute("accept", "image/png, image/jpeg");
+CrearFormulario.appendChild(inputImagen);
+
+var Boton = document.createElement("button");
+var Boton = document.createTextNode("Crear Personaje");
+CrearFormulario.appendChild(Boton);
+
+var tituloNombre = document.createElement("label");
+tituloNombre.setAttribute("label" , "nombre");
+CrearFormulario.appendChild(tituloNombre);
