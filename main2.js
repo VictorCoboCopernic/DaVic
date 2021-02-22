@@ -44,14 +44,7 @@ let campeones = [
 var tabla = document.createElement("table");
 taula.appendChild(tabla);
 
-var r0_0c = document.createTextNode("ID");
-var r0_1c = document.createTextNode("NOMBRE");
-var r0_2c = document.createTextNode("TITULO");
-var r0_3c = document.createTextNode("HP");
-var r0_4c = document.createTextNode("ROL");
-var r0_5c = document.createTextNode("IMAGEN");
-var r0_6c = document.createTextNode("MODIFICAR");
-var r0_7c = document.createTextNode("ELIMINAR");
+
 updateTabla();
 
 function updateTabla (){
@@ -70,7 +63,14 @@ function updateTabla (){
         
     }
 
-    //<button onclick="partida.abandono()" class="BotonAbandona ">ABANDONA</button>
+    var r0_0c = document.createTextNode("ID");
+    var r0_1c = document.createTextNode("NOMBRE");
+    var r0_2c = document.createTextNode("TITULO");
+    var r0_3c = document.createTextNode("HP");
+    var r0_4c = document.createTextNode("ROL");
+    var r0_5c = document.createTextNode("IMAGEN");
+    var r0_6c = document.createTextNode("MODIFICAR");
+    var r0_7c = document.createTextNode("ELIMINAR");
 
     for (let i = 0; i < contador; i++){
         
@@ -110,36 +110,76 @@ function updateTabla (){
 var CrearFormulario = document.createElement("form");
 insertar.appendChild(CrearFormulario);
 
+var tituloNombre = document.createElement("label");
+var tituloNombreContenido = document.createTextNode("Nombre");
+CrearFormulario.appendChild(tituloNombre);
+tituloNombre.appendChild(tituloNombreContenido);
 var inputNombre = document.createElement("input");
 inputNombre.setAttribute("type", "text");
 inputNombre.setAttribute("id", "nombre");
 CrearFormulario.appendChild(inputNombre);
 
+var SaltoLinea = document.createElement("br");
+CrearFormulario.appendChild(SaltoLinea);
+
+var tituloNombre = document.createElement("label");
+var tituloNombreContenido = document.createTextNode("Titulo");
+CrearFormulario.appendChild(tituloNombre);
+tituloNombre.appendChild(tituloNombreContenido);
 var inputTitulo = document.createElement("input");
 inputTitulo.setAttribute("type", "text");
 inputTitulo.setAttribute("id", "titulo");
 CrearFormulario.appendChild(inputTitulo);
 
+var SaltoLinea = document.createElement("br");
+CrearFormulario.appendChild(SaltoLinea);
+
+var tituloNombre = document.createElement("label");
+var tituloNombreContenido = document.createTextNode("Hp");
+CrearFormulario.appendChild(tituloNombre);
+tituloNombre.appendChild(tituloNombreContenido);
 var inputHp = document.createElement("input");
 inputHp.setAttribute("type", "text");
 inputHp.setAttribute("id", "hp");
 CrearFormulario.appendChild(inputHp);
 
+var SaltoLinea = document.createElement("br");
+CrearFormulario.appendChild(SaltoLinea);
+
+var tituloNombre = document.createElement("label");
+var tituloNombreContenido = document.createTextNode("Rol");
+CrearFormulario.appendChild(tituloNombre);
+tituloNombre.appendChild(tituloNombreContenido);
 var inputRol = document.createElement("input");
 inputRol.setAttribute("type", "text");
 inputRol.setAttribute("id", "rol");
 CrearFormulario.appendChild(inputRol);
 
+var SaltoLinea = document.createElement("br");
+CrearFormulario.appendChild(SaltoLinea);
+
+var tituloNombre = document.createElement("label");
+var tituloNombreContenido = document.createTextNode("Imagen");
+CrearFormulario.appendChild(tituloNombre);
+tituloNombre.appendChild(tituloNombreContenido);
 var inputImagen = document.createElement("input");
 inputImagen.setAttribute("type", "file");
 inputImagen.setAttribute("id", "imagen");
-inputImagen.setAttribute("accept", "image/png, image/jpeg");
 CrearFormulario.appendChild(inputImagen);
 
-var Boton = document.createElement("button");
-var Boton = document.createTextNode("Crear Personaje");
-CrearFormulario.appendChild(Boton);
+var SaltoLinea = document.createElement("br");
+CrearFormulario.appendChild(SaltoLinea);
 
-var tituloNombre = document.createElement("label");
-tituloNombre.setAttribute("label" , "nombre");
-CrearFormulario.appendChild(tituloNombre);
+var BotonCrear = document.createElement("button");
+BotonCrear.innerHTML=("Crear Personaje"); 
+BotonCrear.addEventListener ("click", function() {
+    alert("Victor capullo");
+});  
+CrearFormulario.appendChild(BotonCrear);
+
+var BotonCancelar = document.createElement("button");
+BotonCancelar.innerHTML=("Cancelar"); 
+CrearFormulario.appendChild(BotonCancelar);
+BotonCancelar.addEventListener ("click", function() {
+    alert("Victor cojo");
+});  
