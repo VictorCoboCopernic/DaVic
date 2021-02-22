@@ -1,5 +1,3 @@
-
-let nocampeones = [];
 let campeones = [
     {
         id: 1,
@@ -43,46 +41,145 @@ let campeones = [
     }, 
 ];
 
-let contador = campeones[campeones.length - 1].id + 1;
+var tabla = document.createElement("table");
+taula.appendChild(tabla);
 
-let taula = document.getElementById("taula");
-let insertar = document.getElementById("insertar");
-let actualizar = document.getElementById("actualizar");
 
-function eliminar (i) {
-    campeones.splice (i, i);
-}
+updateTabla();
 
-function modificar (i) {
+function updateTabla (){
     
-}
-
-function mostrarTaula () {
-        let dibujarTabla = "<table> ";
-            dibujarTabla += "<tr> <td> ID</td>";
-            dibujarTabla += "<td> Nombre </td>";
-            dibujarTabla += "<td> Titulo </td>";
-            dibujarTabla += "<td> HP </td>";
-            dibujarTabla += "<td> Rol </td>";
-            dibujarTabla += "<td> Imagen </td> </tr>";
-        for (let i = 0; i < campeones.length; i++){
-            dibujarTabla += "<tr> <td>" + campeones[i].id + "</td>";
-            dibujarTabla += "<td>" + campeones[i].nombre + "</td>";
-            dibujarTabla += "<td>" + campeones[i].titulo + "</td>";
-            dibujarTabla += "<td>" + campeones[i].HP + "</td>";
-            dibujarTabla += "<td>" + campeones[i].rol + "</td>";
-            dibujarTabla += "<td> <img src=" + campeones[i].imagen + " style='width:100px;height:100px;'> </td>";
-            dibujarTabla += "<td>";
-            dibujarTabla += "<button onclick='eliminar(i)'>Eliminar</button>";
-            dibujarTabla += "</td>";
-            dibujarTabla += "<td>";
-            dibujarTabla += "<button onclick='modificar()'>Modificar</button>";
-            dibujarTabla += "</td> </tr>";
+    tabla.innerHTML = '';
+    
+    let contador = campeones.length;
+    
+    for (let i = 0; i < (contador+1); i++){
+        eval('var r' + i + '= document.createElement("tr");');
+        tabla.appendChild(eval('r'+i));
+        for (let j = 0; j < 8; j++){
+            eval('var r' + i + '_' + j +'= document.createElement("td");');
+            eval('r'+i).appendChild(eval('r' + i +'_' + j));
         }
-        dibujarTabla += "</table>";
-        document.getElementById("taula").innerHTML = dibujarTabla;
+        
     }
-    
-window.onload = function () {
-    mostrarTaula();
-};
+
+    var r0_0c = document.createTextNode("ID");
+    var r0_1c = document.createTextNode("NOMBRE");
+    var r0_2c = document.createTextNode("TITULO");
+    var r0_3c = document.createTextNode("HP");
+    var r0_4c = document.createTextNode("ROL");
+    var r0_5c = document.createTextNode("IMAGEN");
+    var r0_6c = document.createTextNode("MODIFICAR");
+    var r0_7c = document.createTextNode("ELIMINAR");
+
+    for (let i = 0; i < contador; i++){
+        
+        eval('var r' + (i+1) + '_0c = document.createTextNode(campeones[i].id);');
+        eval('var r' + (i+1) + '_1c = document.createTextNode(campeones[i].nombre);');
+        eval('var r' + (i+1) + '_2c = document.createTextNode(campeones[i].titulo);');
+        eval('var r' + (i+1) + '_3c = document.createTextNode(campeones[i].HP);');
+        eval('var r' + (i+1) + '_4c = document.createTextNode(campeones[i].rol);');
+        eval('var r' + (i+1) + '_5c = document.createElement("img");');
+        
+        eval('r' + (i+1) + '_5').appendChild(eval('r' + (i+1) + '_5c'));
+        eval('r' + (i+1) + '_5c').setAttribute("width", "75");
+        eval('r' + (i+1) +'_5c').setAttribute("src", campeones[i].imagen);
+        
+        eval('var r' + (i+1) + '_6c = document.createElement("button");');
+        eval('r' + (i+1) + '_6c').innerHTML = "Modificar";
+        eval('r' + (i+1) + '_6c').id=i;
+        eval('r' + (i+1) + '_6c').addEventListener ("click", function() {
+        });  
+        
+        eval('var r' + (i+1) + '_7c = document.createElement("button");');
+        eval('r' + (i+1) + '_7c').innerHTML = "Eliminar";
+        eval('r' + (i+1) + '_7c').id=i;
+        eval('r' + (i+1) + '_7c').addEventListener ("click", function() {
+            campeones.splice(this.id,1);
+            updateTabla();
+        });
+    }
+
+    for (let i = 0; i < (contador+1); i++){
+        for (let j = 0; j < 8; j++){
+            eval('r' + i +'_' + j).appendChild(eval('r' + i + '_' + j + 'c'));
+        }
+    }
+}
+
+var CrearFormulario = document.createElement("form");
+insertar.appendChild(CrearFormulario);
+
+var tituloNombre = document.createElement("label");
+var tituloNombreContenido = document.createTextNode("Nombre");
+CrearFormulario.appendChild(tituloNombre);
+tituloNombre.appendChild(tituloNombreContenido);
+var inputNombre = document.createElement("input");
+inputNombre.setAttribute("type", "text");
+inputNombre.setAttribute("id", "nombre");
+CrearFormulario.appendChild(inputNombre);
+
+var SaltoLinea = document.createElement("br");
+CrearFormulario.appendChild(SaltoLinea);
+
+var tituloNombre = document.createElement("label");
+var tituloNombreContenido = document.createTextNode("Titulo");
+CrearFormulario.appendChild(tituloNombre);
+tituloNombre.appendChild(tituloNombreContenido);
+var inputTitulo = document.createElement("input");
+inputTitulo.setAttribute("type", "text");
+inputTitulo.setAttribute("id", "titulo");
+CrearFormulario.appendChild(inputTitulo);
+
+var SaltoLinea = document.createElement("br");
+CrearFormulario.appendChild(SaltoLinea);
+
+var tituloNombre = document.createElement("label");
+var tituloNombreContenido = document.createTextNode("Hp");
+CrearFormulario.appendChild(tituloNombre);
+tituloNombre.appendChild(tituloNombreContenido);
+var inputHp = document.createElement("input");
+inputHp.setAttribute("type", "text");
+inputHp.setAttribute("id", "hp");
+CrearFormulario.appendChild(inputHp);
+
+var SaltoLinea = document.createElement("br");
+CrearFormulario.appendChild(SaltoLinea);
+
+var tituloNombre = document.createElement("label");
+var tituloNombreContenido = document.createTextNode("Rol");
+CrearFormulario.appendChild(tituloNombre);
+tituloNombre.appendChild(tituloNombreContenido);
+var inputRol = document.createElement("input");
+inputRol.setAttribute("type", "text");
+inputRol.setAttribute("id", "rol");
+CrearFormulario.appendChild(inputRol);
+
+var SaltoLinea = document.createElement("br");
+CrearFormulario.appendChild(SaltoLinea);
+
+var tituloNombre = document.createElement("label");
+var tituloNombreContenido = document.createTextNode("Imagen");
+CrearFormulario.appendChild(tituloNombre);
+tituloNombre.appendChild(tituloNombreContenido);
+var inputImagen = document.createElement("input");
+inputImagen.setAttribute("type", "file");
+inputImagen.setAttribute("id", "imagen");
+CrearFormulario.appendChild(inputImagen);
+
+var SaltoLinea = document.createElement("br");
+CrearFormulario.appendChild(SaltoLinea);
+
+var BotonCrear = document.createElement("button");
+BotonCrear.innerHTML=("Crear Personaje"); 
+BotonCrear.addEventListener ("click", function() {
+    alert("Victor capullo");
+});  
+CrearFormulario.appendChild(BotonCrear);
+
+var BotonCancelar = document.createElement("button");
+BotonCancelar.innerHTML=("Cancelar"); 
+CrearFormulario.appendChild(BotonCancelar);
+BotonCancelar.addEventListener ("click", function() {
+    alert("Victor cojo");
+});  
