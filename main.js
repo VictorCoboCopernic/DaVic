@@ -44,9 +44,11 @@ let campeones = [
 var tabla = document.createElement("table");
 taula.appendChild(tabla);
 
-
 updateTabla();
 
+/*------------------------------------------------------*/
+                    /*Div tabla*/
+/*------------------------------------------------------*/
 function updateTabla (){
     
     tabla.innerHTML = '';
@@ -107,6 +109,9 @@ function updateTabla (){
     }
 }
 
+/*------------------------------------------------------*/
+                    /*Div Insertar*/
+/*------------------------------------------------------*/
 var CrearFormulario = document.createElement("form");
 insertar.appendChild(CrearFormulario);
 
@@ -183,3 +188,8 @@ CrearFormulario.appendChild(BotonCancelar);
 BotonCancelar.addEventListener ("click", function() {
     alert("Victor cojo");
 });  
+
+
+/*------------------------------------------------------*/
+                    /*Div Actualizar*/
+/*------------------------------------------------------*/
