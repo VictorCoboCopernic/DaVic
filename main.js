@@ -109,86 +109,100 @@ function updateTabla (){
     }
 }
 
+/*Salto de linea entre la tabla y el boton crear nuevo personaje*/
+var SaltoLinea = document.createElement("br");
+taula.appendChild(SaltoLinea);
+
+/*Creacion del boton Nuevo Personaje */
+var NuevoPersonajeBoton = document.createElement("button");
+taula.appendChild(NuevoPersonajeBoton);   
+NuevoPersonajeBoton.innerHTML=("Nuevo Personaje"); 
+NuevoPersonajeBoton.addEventListener ("click", function() {
+    taula.innerHTML = '';
+   
+
 /*------------------------------------------------------*/
                     /*Div Insertar*/
 /*------------------------------------------------------*/
-var CrearFormulario = document.createElement("form");
-insertar.appendChild(CrearFormulario);
+    var CrearFormulario = document.createElement("form");
+    insertar.appendChild(CrearFormulario);
 
-var tituloNombre = document.createElement("label");
-var tituloNombreContenido = document.createTextNode("Nombre");
-CrearFormulario.appendChild(tituloNombre);
-tituloNombre.appendChild(tituloNombreContenido);
-var inputNombre = document.createElement("input");
-inputNombre.setAttribute("type", "text");
-inputNombre.setAttribute("id", "nombre");
-CrearFormulario.appendChild(inputNombre);
+    var tituloNombre = document.createElement("label");
+    var tituloNombreContenido = document.createTextNode("Nombre");
+    CrearFormulario.appendChild(tituloNombre);
+    tituloNombre.appendChild(tituloNombreContenido);
+    var inputNombre = document.createElement("input");
+    inputNombre.setAttribute("type", "text");
+    inputNombre.setAttribute("id", "nombre");
+    CrearFormulario.appendChild(inputNombre);
 
-var SaltoLinea = document.createElement("br");
-CrearFormulario.appendChild(SaltoLinea);
+    var SaltoLinea = document.createElement("br");
+    CrearFormulario.appendChild(SaltoLinea);
 
-var tituloNombre = document.createElement("label");
-var tituloNombreContenido = document.createTextNode("Titulo");
-CrearFormulario.appendChild(tituloNombre);
-tituloNombre.appendChild(tituloNombreContenido);
-var inputTitulo = document.createElement("input");
-inputTitulo.setAttribute("type", "text");
-inputTitulo.setAttribute("id", "titulo");
-CrearFormulario.appendChild(inputTitulo);
+    var tituloNombre = document.createElement("label");
+    var tituloNombreContenido = document.createTextNode("Titulo");
+    CrearFormulario.appendChild(tituloNombre);
+    tituloNombre.appendChild(tituloNombreContenido);
+    var inputTitulo = document.createElement("input");
+    inputTitulo.setAttribute("type", "text");
+    inputTitulo.setAttribute("id", "titulo");
+    CrearFormulario.appendChild(inputTitulo);
 
-var SaltoLinea = document.createElement("br");
-CrearFormulario.appendChild(SaltoLinea);
+    var SaltoLinea = document.createElement("br");
+    CrearFormulario.appendChild(SaltoLinea);
 
-var tituloNombre = document.createElement("label");
-var tituloNombreContenido = document.createTextNode("Hp");
-CrearFormulario.appendChild(tituloNombre);
-tituloNombre.appendChild(tituloNombreContenido);
-var inputHp = document.createElement("input");
-inputHp.setAttribute("type", "text");
-inputHp.setAttribute("id", "hp");
-CrearFormulario.appendChild(inputHp);
+    var tituloNombre = document.createElement("label");
+    var tituloNombreContenido = document.createTextNode("Hp");
+    CrearFormulario.appendChild(tituloNombre);
+    tituloNombre.appendChild(tituloNombreContenido);
+    var inputHp = document.createElement("input");
+    inputHp.setAttribute("type", "text");
+    inputHp.setAttribute("id", "hp");
+    CrearFormulario.appendChild(inputHp);
 
-var SaltoLinea = document.createElement("br");
-CrearFormulario.appendChild(SaltoLinea);
+    var SaltoLinea = document.createElement("br");
+    CrearFormulario.appendChild(SaltoLinea);
 
-var tituloNombre = document.createElement("label");
-var tituloNombreContenido = document.createTextNode("Rol");
-CrearFormulario.appendChild(tituloNombre);
-tituloNombre.appendChild(tituloNombreContenido);
-var inputRol = document.createElement("input");
-inputRol.setAttribute("type", "text");
-inputRol.setAttribute("id", "rol");
-CrearFormulario.appendChild(inputRol);
+    var tituloNombre = document.createElement("label");
+    var tituloNombreContenido = document.createTextNode("Rol");
+    CrearFormulario.appendChild(tituloNombre);
+    tituloNombre.appendChild(tituloNombreContenido);
+    var inputRol = document.createElement("input");
+    inputRol.setAttribute("type", "text");
+    inputRol.setAttribute("id", "rol");
+    CrearFormulario.appendChild(inputRol);
 
-var SaltoLinea = document.createElement("br");
-CrearFormulario.appendChild(SaltoLinea);
+    var SaltoLinea = document.createElement("br");
+    CrearFormulario.appendChild(SaltoLinea);
 
-var tituloNombre = document.createElement("label");
-var tituloNombreContenido = document.createTextNode("Imagen");
-CrearFormulario.appendChild(tituloNombre);
-tituloNombre.appendChild(tituloNombreContenido);
-var inputImagen = document.createElement("input");
-inputImagen.setAttribute("type", "file");
-inputImagen.setAttribute("id", "imagen");
-CrearFormulario.appendChild(inputImagen);
+    var tituloNombre = document.createElement("label");
+    var tituloNombreContenido = document.createTextNode("Imagen");
+    CrearFormulario.appendChild(tituloNombre);
+    tituloNombre.appendChild(tituloNombreContenido);
+    var inputImagen = document.createElement("input");
+    inputImagen.setAttribute("type", "file");
+    inputImagen.setAttribute("id", "imagen");
+    CrearFormulario.appendChild(inputImagen);
 
-var SaltoLinea = document.createElement("br");
-CrearFormulario.appendChild(SaltoLinea);
+    var SaltoLinea = document.createElement("br");
+    CrearFormulario.appendChild(SaltoLinea);
 
-var BotonCrear = document.createElement("button");
-BotonCrear.innerHTML=("Crear Personaje"); 
-BotonCrear.addEventListener ("click", function() {
-    alert("Victor capullo");
+    var BotonCrear = document.createElement("button");
+    BotonCrear.innerHTML=("Crear Personaje"); 
+    BotonCrear.addEventListener ("click", function() {
+        alert("Victor capullo");
+    });  
+    CrearFormulario.appendChild(BotonCrear);
+
+    var BotonCancelar = document.createElement("button");
+    BotonCancelar.innerHTML=("Cancelar"); 
+    CrearFormulario.appendChild(BotonCancelar);
+    BotonCancelar.addEventListener ("click", function() {
+        insertar.innerHTML = '';
+        updateTabla();
+             
+    });  
 });  
-CrearFormulario.appendChild(BotonCrear);
-
-var BotonCancelar = document.createElement("button");
-BotonCancelar.innerHTML=("Cancelar"); 
-CrearFormulario.appendChild(BotonCancelar);
-BotonCancelar.addEventListener ("click", function() {
-    alert("Victor cojo");
-});  
-
 
 /*------------------------------------------------------*/
                     /*Div Actualizar*/
