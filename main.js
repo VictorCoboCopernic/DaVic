@@ -41,6 +41,7 @@ let campeones = [
     }, 
 ];
 
+var taula = document.getElementById("taula");
 var tabla = document.createElement("table");
 taula.appendChild(tabla);
 
@@ -51,7 +52,11 @@ updateTabla();
 /*------------------------------------------------------*/
 function updateTabla (){
     
-    tabla.innerHTML = '';
+
+
+  while (tabla.lastElementChild) {
+    tabla.removeChild(tabla.lastElementChild);
+  }
     
     let contador = campeones.length;
     
@@ -118,7 +123,9 @@ var NuevoPersonajeBoton = document.createElement("button");
 taula.appendChild(NuevoPersonajeBoton);   
 NuevoPersonajeBoton.innerHTML=("Nuevo Personaje"); 
 NuevoPersonajeBoton.addEventListener ("click", function() {
-    taula.innerHTML = '';
+    while (taula.lastElementChild) {
+    taula.removeChild(taula.lastElementChild);
+  }
    
 
 /*------------------------------------------------------*/
@@ -198,7 +205,10 @@ NuevoPersonajeBoton.addEventListener ("click", function() {
     BotonCancelar.innerHTML=("Cancelar"); 
     CrearFormulario.appendChild(BotonCancelar);
     BotonCancelar.addEventListener ("click", function() {
-        insertar.innerHTML = '';
+        CrearFormulario.preventDefault();
+        while (insertar.lastElementChild) {
+            insertar.removeChild(insertar.lastElementChild);
+        }
         updateTabla();
              
     });  
