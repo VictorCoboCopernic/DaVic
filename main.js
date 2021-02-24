@@ -43,7 +43,13 @@ let campeones = [
 
 var taula = document.getElementById("taula");
 var tabla = document.createElement("table");
-taula.appendChild(tabla);
+
+/*Salto de linea entre la tabla y el boton crear nuevo personaje*/
+var SaltoLinea = document.createElement("br");
+
+/*Creacion del boton Nuevo Personaje */
+var NuevoPersonajeBoton = document.createElement("button");
+
 
 updateTabla();
 
@@ -52,10 +58,11 @@ updateTabla();
 /*------------------------------------------------------*/
 function updateTabla (){
     
-
+taula.appendChild(tabla);
 
   while (tabla.lastElementChild) {
     tabla.removeChild(tabla.lastElementChild);
+      
   }
     
     let contador = campeones.length;
@@ -112,17 +119,19 @@ function updateTabla (){
             eval('r' + i +'_' + j).appendChild(eval('r' + i + '_' + j + 'c'));
         }
     }
-}
 
-/*Salto de linea entre la tabla y el boton crear nuevo personaje*/
-var SaltoLinea = document.createElement("br");
+
+
 taula.appendChild(SaltoLinea);
 
-/*Creacion del boton Nuevo Personaje */
-var NuevoPersonajeBoton = document.createElement("button");
+
 taula.appendChild(NuevoPersonajeBoton);   
 NuevoPersonajeBoton.innerHTML=("Nuevo Personaje"); 
-NuevoPersonajeBoton.addEventListener ("click", function() {
+NuevoPersonajeBoton.addEventListener ("click", div_insertar);
+
+}
+
+function div_insertar (){
     while (taula.lastElementChild) {
     taula.removeChild(taula.lastElementChild);
   }
@@ -204,15 +213,19 @@ NuevoPersonajeBoton.addEventListener ("click", function() {
     var BotonCancelar = document.createElement("button");
     BotonCancelar.innerHTML=("Cancelar"); 
     CrearFormulario.appendChild(BotonCancelar);
-    BotonCancelar.addEventListener ("click", function() {
-        CrearFormulario.preventDefault();
+    BotonCancelar.addEventListener ("click", function(event) {
+        
+        
+        
         while (insertar.lastElementChild) {
             insertar.removeChild(insertar.lastElementChild);
         }
         updateTabla();
+        event.preventDefault();
+        
              
     });  
-});  
+}
 
 /*------------------------------------------------------*/
                     /*Div Actualizar*/
