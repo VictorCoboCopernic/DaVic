@@ -41,6 +41,8 @@ let campeones = [
     }, 
 ];
 
+let idnum = 5
+
 var taula = document.getElementById("taula");
 var tabla = document.createElement("table");
 
@@ -206,7 +208,15 @@ function div_insertar (){
     var BotonCrear = document.createElement("button");
     BotonCrear.innerHTML=("Crear Personaje"); 
     BotonCrear.addEventListener ("click", function() {
-        alert("Victor capullo");
+        idnum++;
+        campeones.push ({
+            id: idnum,
+            nombre: "Aitor",
+            titulo: "Tilla",
+            HP: 20,
+            rol: "Cagarla",
+            imagen: "img/Viktor.png"
+        });
     });  
     CrearFormulario.appendChild(BotonCrear);
 
