@@ -208,15 +208,13 @@ function div_insertar (){
     var BotonCrear = document.createElement("button");
     BotonCrear.innerHTML=("Crear Personaje"); 
     BotonCrear.addEventListener ("click", function() {
-        idnum++;
-        campeones.push ({
-            id: idnum,
-            nombre: "Aitor",
-            titulo: "Tilla",
-            HP: 20,
-            rol: "Cagarla",
-            imagen: "img/Viktor.png"
-        });
+        var NewNombre = document.getElementById("nombre").value;
+        var NewTitulo = document.getElementById("titulo").value;
+        var NewHp = document.getElementById("hp").value;
+        var NewRol = document.getElementById("rol").value;
+        var NewImagen = document.getElementById("imagen").value;
+        alert(NewNombre + " " + NewTitulo + " " +  NewHp + " " + NewRol  + " " + NewImagen);
+
     });  
     CrearFormulario.appendChild(BotonCrear);
 
