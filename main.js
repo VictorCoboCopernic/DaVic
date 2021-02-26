@@ -207,15 +207,27 @@ function div_insertar (){
 
     var BotonCrear = document.createElement("button");
     BotonCrear.innerHTML=("Crear Personaje"); 
-    BotonCrear.addEventListener ("click", function() {
+    BotonCrear.addEventListener ("click", function() { 
         var NewNombre = document.getElementById("nombre").value;
         var NewTitulo = document.getElementById("titulo").value;
         var NewHp = document.getElementById("hp").value;
         var NewRol = document.getElementById("rol").value;
         var NewImagen = document.getElementById("imagen").value;
-        alert(NewNombre + " " + NewTitulo + " " +  NewHp + " " + NewRol  + " " + NewImagen);
-
-    });  
+        idnum++;
+        campeones.push ({
+            id: idnum,
+            nombre: NewNombre,
+            titulo: NewTitulo,
+            HP: NewHp,
+            rol: NewRol,
+            imagen: NewImagen
+        });
+        while (insertar.lastElementChild) {
+            insertar.removeChild(insertar.lastElementChild);
+        }
+        updateTabla();
+        event.preventDefault();
+    });
     CrearFormulario.appendChild(BotonCrear);
 
     var BotonCancelar = document.createElement("button");
