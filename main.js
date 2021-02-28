@@ -1,4 +1,3 @@
-//Creamos nuestro array donde vamos a guardar los objetos JSON y a la vez iremos alvergando los demas personajes que se vayan creando a traves del formulario
 let campeones = [
     {
         id: 1,
@@ -47,10 +46,12 @@ let campeones = [
     }, 
 ];
 
-let idnum = 5//Variable; contador de la id que empieza por el 5 y se ira incrementado cada vez que se crea un nuevo personaje
+let idnum = 5
 
-var taula = document.getElementById("taula");//Variable; donde vamos a mostrar el contenido que hay dentro del "DIV TAULA"
-var tabla = document.createElement("table");//Variable; donde mostramos la tabla que vamos a crear
+var taula = document.getElementById("taula");
+var insertar = document.getElementById("insertar");
+var actualizar = document.getElementById("actualizar");
+var tabla = document.createElement("table");
 
 /*Salto de linea entre la tabla y el boton crear nuevo personaje*/
 var SaltoLinea = document.createElement("br");
@@ -113,6 +114,10 @@ taula.appendChild(tabla);
         eval('r' + (i+1) + '_7c').innerHTML = "Modificar";
         eval('r' + (i+1) + '_7c').id=i;
         eval('r' + (i+1) + '_7c').addEventListener ("click", function() {
+            var idTabla = this.id
+            var CrearFormulario = document.createElement("form");
+            actualizar.appendChild(CrearFormulario);
+            formulario(CrearFormulario, idTabla);
         });  
         
         eval('var r' + (i+1) + '_8c = document.createElement("button");');
@@ -142,209 +147,265 @@ NuevoPersonajeBoton.addEventListener ("click", div_insertar);
 }
 
 function div_insertar (){
-    while (taula.lastElementChild) {
-    taula.removeChild(taula.lastElementChild);
-  }
+    var CrearFormulario = document.createElement("form");
+    insertar.appendChild(CrearFormulario);
+    formulario(CrearFormulario);
+    
+}
+    
    
 
 /*------------------------------------------------------*/
-                    /*Div Insertar*/
+                    /*Formulario*/
 /*------------------------------------------------------*/
-    var CrearFormulario = document.createElement("form");
-    insertar.appendChild(CrearFormulario);
+    
 
-    var tituloNombre = document.createElement("label");
-    var tituloNombreContenido = document.createTextNode("Nombre");
-    CrearFormulario.appendChild(tituloNombre);
-    tituloNombre.appendChild(tituloNombreContenido);
-    var inputNombre = document.createElement("input");
-    inputNombre.setAttribute("type", "text");
-    inputNombre.setAttribute("id", "nombre");
-    CrearFormulario.appendChild(inputNombre);
+    function formulario (CrearFormulario, idTabla){
+        
+        
+        while (taula.lastElementChild) {
+            taula.removeChild(taula.lastElementChild);
+        }
+        var actualizar = document.getElementById("actualizar");
+        var tituloNombre = document.createElement("label");
+        var tituloNombreContenido = document.createTextNode("Nombre");
+        CrearFormulario.appendChild(tituloNombre);
+        tituloNombre.appendChild(tituloNombreContenido);
+        var inputNombre = document.createElement("input");
+        inputNombre.setAttribute("type", "text");
+        inputNombre.setAttribute("id", "nombre");
+        CrearFormulario.appendChild(inputNombre);
 
-    var SaltoLinea = document.createElement("br");
-    CrearFormulario.appendChild(SaltoLinea);
+        var SaltoLinea = document.createElement("br");
+        CrearFormulario.appendChild(SaltoLinea);
 
-    var tituloNombre = document.createElement("label");
-    var tituloNombreContenido = document.createTextNode("Titulo");
-    CrearFormulario.appendChild(tituloNombre);
-    tituloNombre.appendChild(tituloNombreContenido);
-    var inputTitulo = document.createElement("input");
-    inputTitulo.setAttribute("type", "text");
-    inputTitulo.setAttribute("id", "titulo");
-    CrearFormulario.appendChild(inputTitulo);
+        var tituloNombre = document.createElement("label");
+        var tituloNombreContenido = document.createTextNode("Titulo");
+        CrearFormulario.appendChild(tituloNombre);
+        tituloNombre.appendChild(tituloNombreContenido);
+        var inputTitulo = document.createElement("input");
+        inputTitulo.setAttribute("type", "text");
+        inputTitulo.setAttribute("id", "titulo");
+        CrearFormulario.appendChild(inputTitulo);
 
-    var SaltoLinea = document.createElement("br");
-    CrearFormulario.appendChild(SaltoLinea);
+        var SaltoLinea = document.createElement("br");
+        CrearFormulario.appendChild(SaltoLinea);
 
-    var tituloNombre = document.createElement("label");
-    var tituloNombreContenido = document.createTextNode("Hp");
-    CrearFormulario.appendChild(tituloNombre);
-    tituloNombre.appendChild(tituloNombreContenido);
-    var inputHp = document.createElement("input");
-    inputHp.setAttribute("type", "text");
-    inputHp.setAttribute("id", "hp");
-    CrearFormulario.appendChild(inputHp);
+        var tituloNombre = document.createElement("label");
+        var tituloNombreContenido = document.createTextNode("Hp");
+        CrearFormulario.appendChild(tituloNombre);
+        tituloNombre.appendChild(tituloNombreContenido);
+        var inputHp = document.createElement("input");
+        inputHp.setAttribute("type", "text");
+        inputHp.setAttribute("id", "hp");
+        CrearFormulario.appendChild(inputHp);
 
-    var SaltoLinea = document.createElement("br");
-    CrearFormulario.appendChild(SaltoLinea);
+        var SaltoLinea = document.createElement("br");
+        CrearFormulario.appendChild(SaltoLinea);
 
-    var tituloNombre = document.createElement("label");
-    var tituloNombreContenido = document.createTextNode("Rol");
-    CrearFormulario.appendChild(tituloNombre);
-    tituloNombre.appendChild(tituloNombreContenido);
-    
-    var inputRol = document.createElement("select");
-    inputRol.setAttribute("id", "rol");
-    CrearFormulario.appendChild(inputRol);
-    var inputRolDaño = document.createElement("option");
-    inputRol.appendChild(inputRolDaño);
-    var inputRolDañoContenido = document.createTextNode("Daño");
-    inputRolDaño.appendChild(inputRolDañoContenido);
-    var inputRolFlanco = document.createElement("option");
-    inputRol.appendChild(inputRolFlanco);
-    var inputRolFlancoContenido = document.createTextNode("Flanco");
-    inputRolFlanco.appendChild(inputRolFlancoContenido);
-    var inputRolTanque = document.createElement("option");
-    inputRol.appendChild(inputRolTanque);
-    var inputRolTanqueContenido = document.createTextNode("Tanque");
-    inputRolTanque.appendChild(inputRolTanqueContenido);
-    var inputRolSanador = document.createElement("option");
-    inputRol.appendChild(inputRolSanador);
-    var inputRolSanadorContenido = document.createTextNode("Sanador");
-    inputRolSanador.appendChild(inputRolSanadorContenido);
+        var tituloNombre = document.createElement("label");
+        var tituloNombreContenido = document.createTextNode("Rol");
+        CrearFormulario.appendChild(tituloNombre);
+        tituloNombre.appendChild(tituloNombreContenido);
 
-    var SaltoLinea = document.createElement("br");
-    CrearFormulario.appendChild(SaltoLinea);
-    
-    var tituloNombre = document.createElement("label");
-    var tituloNombreContenido = document.createTextNode("Caracteristicas");
-    CrearFormulario.appendChild(tituloNombre);
-    tituloNombre.appendChild(tituloNombreContenido);
-    
-    var SaltoLinea = document.createElement("br");
-    CrearFormulario.appendChild(SaltoLinea);
+        var inputRol = document.createElement("select");
+        inputRol.setAttribute("id", "rol");
+        CrearFormulario.appendChild(inputRol);
 
-    var inputCaracteristicas1 = document.createElement("input");
-    inputCaracteristicas1.setAttribute("type", "checkbox");
-    inputCaracteristicas1.setAttribute("class", "checks");
-    inputCaracteristicas1.setAttribute("id", "caracteristicas1");
-    inputCaracteristicas1.setAttribute("name", "caracteristicas1");
-    inputCaracteristicas1.setAttribute("value", "Fuerte");
-    CrearFormulario.appendChild(inputCaracteristicas1);
-    
-    var inputCaracteristicas1Name = document.createElement("label");
-    inputCaracteristicas1Name.setAttribute("for", "caracteristicas1");
-    CrearFormulario.appendChild(inputCaracteristicas1Name);
-    var inputCaracteristicas1Contenido = document.createTextNode("Fuerte");
-    inputCaracteristicas1Name.appendChild(inputCaracteristicas1Contenido);
-    
-    var SaltoLinea = document.createElement("br");
-    CrearFormulario.appendChild(SaltoLinea);
-    
-    var inputCaracteristicas2 = document.createElement("input");
-    inputCaracteristicas2.setAttribute("type", "checkbox");
-    inputCaracteristicas2.setAttribute("class", "checks");
-    inputCaracteristicas2.setAttribute("id", "caracteristicas2");
-    inputCaracteristicas2.setAttribute("name", "caracteristicas2");
-    inputCaracteristicas2.setAttribute("value", "Agil");
-    CrearFormulario.appendChild(inputCaracteristicas2);
-    
-    var inputCaracteristicas2Name = document.createElement("label");
-    inputCaracteristicas2Name.setAttribute("for", "caracteristicas2");
-    CrearFormulario.appendChild(inputCaracteristicas2Name);
-    var inputCaracteristicas2Contenido = document.createTextNode("Agil");
-    inputCaracteristicas2Name.appendChild(inputCaracteristicas2Contenido);
-    
-    var SaltoLinea = document.createElement("br");
-    CrearFormulario.appendChild(SaltoLinea);
-    
-    var inputCaracteristicas3 = document.createElement("input");
-    inputCaracteristicas3.setAttribute("type", "checkbox");
-    inputCaracteristicas3.setAttribute("class", "checks");
-    inputCaracteristicas3.setAttribute("id", "caracteristicas3");
-    inputCaracteristicas3.setAttribute("name", "caracteristicas3");
-    inputCaracteristicas3.setAttribute("value", "Bondadoso");
-    CrearFormulario.appendChild(inputCaracteristicas3);
-    
-    var inputCaracteristicas3Name = document.createElement("label");
-    inputCaracteristicas3Name.setAttribute("for", "caracteristicas3");
-    CrearFormulario.appendChild(inputCaracteristicas3Name);
-    var inputCaracteristicas3Contenido = document.createTextNode("Bondadoso");
-    inputCaracteristicas3Name.appendChild(inputCaracteristicas3Contenido);
-    var SaltoLinea = document.createElement("br");
-    CrearFormulario.appendChild(SaltoLinea);
-    
-    var inputCaracteristicas4 = document.createElement("input");
-    inputCaracteristicas4.setAttribute("type", "checkbox");
-    inputCaracteristicas4.setAttribute("class", "checks");
-    inputCaracteristicas4.setAttribute("id", "caracteristicas4");
-    inputCaracteristicas4.setAttribute("name", "caracteristicas4");
-    inputCaracteristicas4.setAttribute("value", "Inteligente");
-    CrearFormulario.appendChild(inputCaracteristicas4);
-    
-    var inputCaracteristicas4Name = document.createElement("label");
-    inputCaracteristicas4Name.setAttribute("for", "caracteristicas4");
-    CrearFormulario.appendChild(inputCaracteristicas4Name);
-    var inputCaracteristicas4Contenido = document.createTextNode("Inteligente");
-    inputCaracteristicas4Name.appendChild(inputCaracteristicas4Contenido);
-    
-    var SaltoLinea = document.createElement("br");
-    CrearFormulario.appendChild(SaltoLinea);
-    
-    var tituloNombre = document.createElement("label");
-    var tituloNombreContenido = document.createTextNode("Imagen");
-    CrearFormulario.appendChild(tituloNombre);
-    tituloNombre.appendChild(tituloNombreContenido);
-    var inputImagen = document.createElement("input");
-    inputImagen.setAttribute("type", "file");
-    inputImagen.setAttribute("id", "imagen");
-    CrearFormulario.appendChild(inputImagen);
+        var inputRolVacio = document.createElement("option");
+        inputRol.appendChild(inputRolVacio);
+        var inputRolVacioContenido = document.createTextNode("");
+        inputRolVacio.appendChild(inputRolVacioContenido);
 
-    var SaltoLinea = document.createElement("br");
-    CrearFormulario.appendChild(SaltoLinea);
 
+        var inputRolDaño = document.createElement("option");
+        inputRol.appendChild(inputRolDaño);
+        var inputRolDañoContenido = document.createTextNode("Daño");
+        inputRolDaño.appendChild(inputRolDañoContenido);
+        var inputRolFlanco = document.createElement("option");
+        inputRol.appendChild(inputRolFlanco);
+        var inputRolFlancoContenido = document.createTextNode("Flanco");
+        inputRolFlanco.appendChild(inputRolFlancoContenido);
+        var inputRolTanque = document.createElement("option");
+        inputRol.appendChild(inputRolTanque);
+        var inputRolTanqueContenido = document.createTextNode("Tanque");
+        inputRolTanque.appendChild(inputRolTanqueContenido);
+        var inputRolSanador = document.createElement("option");
+        inputRol.appendChild(inputRolSanador);
+        var inputRolSanadorContenido = document.createTextNode("Sanador");
+        inputRolSanador.appendChild(inputRolSanadorContenido);
+
+        var SaltoLinea = document.createElement("br");
+        CrearFormulario.appendChild(SaltoLinea);
+
+        var tituloNombre = document.createElement("label");
+        var tituloNombreContenido = document.createTextNode("Caracteristicas");
+        CrearFormulario.appendChild(tituloNombre);
+        tituloNombre.appendChild(tituloNombreContenido);
+
+        var SaltoLinea = document.createElement("br");
+        CrearFormulario.appendChild(SaltoLinea);
+
+        var inputCaracteristicas1 = document.createElement("input");
+        inputCaracteristicas1.setAttribute("type", "checkbox");
+        inputCaracteristicas1.setAttribute("class", "checks");
+        inputCaracteristicas1.setAttribute("id", "caracteristicas1");
+        inputCaracteristicas1.setAttribute("name", "caracteristicas1");
+        inputCaracteristicas1.setAttribute("value", "Fuerte");
+        CrearFormulario.appendChild(inputCaracteristicas1);
+
+        var inputCaracteristicas1Name = document.createElement("label");
+        inputCaracteristicas1Name.setAttribute("for", "caracteristicas1");
+        CrearFormulario.appendChild(inputCaracteristicas1Name);
+        var inputCaracteristicas1Contenido = document.createTextNode("Fuerte");
+        inputCaracteristicas1Name.appendChild(inputCaracteristicas1Contenido);
+
+        var SaltoLinea = document.createElement("br");
+        CrearFormulario.appendChild(SaltoLinea);
+
+        var inputCaracteristicas2 = document.createElement("input");
+        inputCaracteristicas2.setAttribute("type", "checkbox");
+        inputCaracteristicas2.setAttribute("class", "checks");
+        inputCaracteristicas2.setAttribute("id", "caracteristicas2");
+        inputCaracteristicas2.setAttribute("name", "caracteristicas2");
+        inputCaracteristicas2.setAttribute("value", "Agil");
+        CrearFormulario.appendChild(inputCaracteristicas2);
+
+        var inputCaracteristicas2Name = document.createElement("label");
+        inputCaracteristicas2Name.setAttribute("for", "caracteristicas2");
+        CrearFormulario.appendChild(inputCaracteristicas2Name);
+        var inputCaracteristicas2Contenido = document.createTextNode("Agil");
+        inputCaracteristicas2Name.appendChild(inputCaracteristicas2Contenido);
+
+        var SaltoLinea = document.createElement("br");
+        CrearFormulario.appendChild(SaltoLinea);
+
+        var inputCaracteristicas3 = document.createElement("input");
+        inputCaracteristicas3.setAttribute("type", "checkbox");
+        inputCaracteristicas3.setAttribute("class", "checks");
+        inputCaracteristicas3.setAttribute("id", "caracteristicas3");
+        inputCaracteristicas3.setAttribute("name", "caracteristicas3");
+        inputCaracteristicas3.setAttribute("value", "Bondadoso");
+        CrearFormulario.appendChild(inputCaracteristicas3);
+
+        var inputCaracteristicas3Name = document.createElement("label");
+        inputCaracteristicas3Name.setAttribute("for", "caracteristicas3");
+        CrearFormulario.appendChild(inputCaracteristicas3Name);
+        var inputCaracteristicas3Contenido = document.createTextNode("Bondadoso");
+        inputCaracteristicas3Name.appendChild(inputCaracteristicas3Contenido);
+        var SaltoLinea = document.createElement("br");
+        CrearFormulario.appendChild(SaltoLinea);
+
+        var inputCaracteristicas4 = document.createElement("input");
+        inputCaracteristicas4.setAttribute("type", "checkbox");
+        inputCaracteristicas4.setAttribute("class", "checks");
+        inputCaracteristicas4.setAttribute("id", "caracteristicas4");
+        inputCaracteristicas4.setAttribute("name", "caracteristicas4");
+        inputCaracteristicas4.setAttribute("value", "Inteligente");
+        CrearFormulario.appendChild(inputCaracteristicas4);
+
+        var inputCaracteristicas4Name = document.createElement("label");
+        inputCaracteristicas4Name.setAttribute("for", "caracteristicas4");
+        CrearFormulario.appendChild(inputCaracteristicas4Name);
+        var inputCaracteristicas4Contenido = document.createTextNode("Inteligente");
+        inputCaracteristicas4Name.appendChild(inputCaracteristicas4Contenido);
+
+        var SaltoLinea = document.createElement("br");
+        CrearFormulario.appendChild(SaltoLinea);
+
+        var tituloNombre = document.createElement("label");
+        var tituloNombreContenido = document.createTextNode("Imagen");
+        CrearFormulario.appendChild(tituloNombre);
+        tituloNombre.appendChild(tituloNombreContenido);
+        var inputImagen = document.createElement("input");
+        inputImagen.setAttribute("type", "file");
+        inputImagen.setAttribute("id", "imagen");
+        CrearFormulario.appendChild(inputImagen);
+
+        var SaltoLinea = document.createElement("br");
+        CrearFormulario.appendChild(SaltoLinea);
+        
+        if (idTabla!=undefined){
+            inputNombre.setAttribute("value", campeones[idTabla].nombre);
+            inputTitulo.setAttribute("value", campeones[idTabla].titulo);
+            inputHp.setAttribute("value", campeones[idTabla].HP);
+        }
+        
+    
     var BotonCrear = document.createElement("button");
     BotonCrear.innerHTML=("Crear Personaje"); 
     BotonCrear.addEventListener ("click", function() { 
         var NewNombre = document.getElementById("nombre").value;
         var NewTitulo = document.getElementById("titulo").value;
-        var NewHp = document.getElementById("hp").value;
-        if (NewHp==null){
-            NewHp="";
-        }
         var NewRol = document.getElementById("rol").value;
-        var checks = document.getElementsByClassName('checks');
-        var NewCaracteristicas = '';
-        
-        for ( i = 0; i < 4; i++) {
-            if ( checks[i].checked === true ) {
-            NewCaracteristicas += checks[i].value + " ";
-            }
-        }
             
-        var NewImagen = document.getElementById("imagen").files[0].name;
-        //if (NewImagen==null){
-            NewImagen="Desconocido.jpg";
-        //}
-        idnum++;
-        campeones.push ({
-            id: idnum,
-            nombre: NewNombre,
-            titulo: NewTitulo,
-            HP: NewHp,
-            rol: NewRol,
-            caracteristicas: NewCaracteristicas,
-            imagen: "img/" + NewImagen
-        });
-        while (insertar.lastElementChild) {
-            insertar.removeChild(insertar.lastElementChild);
-        }
-        updateTabla();
-        event.preventDefault();
+        if(NewNombre=="" || NewTitulo=="" || NewRol==""){
+            
+            if(NewNombre==""){
+                inputNombre.setAttribute("style", "border: 5px solid red");
+            }else{
+                inputNombre.setAttribute("style", "");
+            }
+            
+            if(NewTitulo==""){
+                inputTitulo.setAttribute("style", "border: 5px solid red");
+            }else{
+                inputTitulo.setAttribute("style", "");
+            }
+            
+            if(NewRol==""){
+                inputRol.setAttribute("style", "border: 5px solid red");
+            }else{
+                inputRol.setAttribute("style", "");
+            }
+            
+        }else{
+            
+            var NewHp = document.getElementById("hp").value;
+            if (NewHp==null){
+                NewHp="";
+            }
+            var checks = document.getElementsByClassName('checks');
+            var NewCaracteristicas = '';
+
+            for ( i = 0; i < 4; i++) {
+                if ( checks[i].checked === true ) {
+                NewCaracteristicas += checks[i].value + " ";
+                }
+            }
+
+            try{
+            var NewImagen = document.getElementById("imagen").files[0].name;
+            }catch(err){}
+            if (document. getElementById("imagen"). value. length == 0){
+                NewImagen="Desconocido.jpg";
+            }
+            idnum++;
+            campeones.push ({
+                id: idnum,
+                nombre: NewNombre,
+                titulo: NewTitulo,
+                HP: NewHp,
+                rol: NewRol,
+                caracteristicas: NewCaracteristicas,
+                imagen: "img/" + NewImagen
+            });
+            while (insertar.lastElementChild) {
+                insertar.removeChild(insertar.lastElementChild);
+            }
+            while (actualizar.lastElementChild) {
+                actualizar.removeChild(actualizar.lastElementChild);
+            
+            }
+            updateTabla();
+            }
+            event.preventDefault();
+        
     });
     CrearFormulario.appendChild(BotonCrear);
 
+
+    
     var BotonCancelar = document.createElement("button");
     BotonCancelar.innerHTML=("Cancelar"); 
     CrearFormulario.appendChild(BotonCancelar);
@@ -355,12 +416,15 @@ function div_insertar (){
         while (insertar.lastElementChild) {
             insertar.removeChild(insertar.lastElementChild);
         }
+        while (actualizar.lastElementChild) {
+            actualizar.removeChild(actualizar.lastElementChild);  
+        }
         updateTabla();
         event.preventDefault();
         
              
-    });  
-}
+    })
+    }; 
 
 /*------------------------------------------------------*/
                     /*Div Actualizar*/
