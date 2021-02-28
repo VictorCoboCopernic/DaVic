@@ -275,7 +275,7 @@ function div_insertar (){
         SaltoLinea = document.createElement("br");
         CrearFormulario.appendChild(SaltoLinea);
 		
-        //Creamos la etiqueta label con el nombre a mostrar"Hp" y esto se lo aplicamos a la variable "CrearFormulario"		
+        //Creamos la etiqueta label con el nombre a mostrar "Caracteristicas" y esto se lo aplicamos a la variable "CrearFormulario"		
         var tituloNombre = document.createElement("label");
         var tituloNombreContenido = document.createTextNode("Caracteristicas");
         CrearFormulario.appendChild(tituloNombre);
@@ -284,9 +284,9 @@ function div_insertar (){
         //Salto de linea
         SaltoLinea = document.createElement("br");
         CrearFormulario.appendChild(SaltoLinea);
-        SaltoLinea = document.createElement("br");
-        CrearFormulario.appendChild(SaltoLinea);
 
+		
+		//Creamos el input y le asignamos atributos ,con este input lo que estamos haciendo es configurarlo como selecion multiple. Todo esto se lo aplicamos a la variable llamada "CrearFormulario".
         var inputCaracteristicas1 = document.createElement("input");
         inputCaracteristicas1.setAttribute("type", "checkbox");
         inputCaracteristicas1.setAttribute("class", "checks");
@@ -294,7 +294,7 @@ function div_insertar (){
         inputCaracteristicas1.setAttribute("name", "caracteristicas1");
         inputCaracteristicas1.setAttribute("value", "Fuerte");
         CrearFormulario.appendChild(inputCaracteristicas1);
-
+		//Con esto etiquetamos la casilla con el nombre de la caracteristica que le hemos asignado
         var inputCaracteristicas1Name = document.createElement("label");
         inputCaracteristicas1Name.setAttribute("for", "caracteristicas1");
         CrearFormulario.appendChild(inputCaracteristicas1Name);
@@ -304,9 +304,8 @@ function div_insertar (){
         //Salto de linea
         SaltoLinea = document.createElement("br");
         CrearFormulario.appendChild(SaltoLinea);
-        SaltoLinea = document.createElement("br");
-        CrearFormulario.appendChild(SaltoLinea);
 
+		//Creamos el input y le asignamos atributos ,con este input lo que estamos haciendo es configurarlo como selecion multiple. Todo esto se lo aplicamos a la variable llamada "CrearFormulario".
         var inputCaracteristicas2 = document.createElement("input");
         inputCaracteristicas2.setAttribute("type", "checkbox");
         inputCaracteristicas2.setAttribute("class", "checks");
@@ -314,7 +313,7 @@ function div_insertar (){
         inputCaracteristicas2.setAttribute("name", "caracteristicas2");
         inputCaracteristicas2.setAttribute("value", "Agil");
         CrearFormulario.appendChild(inputCaracteristicas2);
-
+		//Con esto etiquetamos la casilla con el nombre de la caracteristica que le hemos asignado
         var inputCaracteristicas2Name = document.createElement("label");
         inputCaracteristicas2Name.setAttribute("for", "caracteristicas2");
         CrearFormulario.appendChild(inputCaracteristicas2Name);
@@ -324,9 +323,8 @@ function div_insertar (){
         //Salto de linea
         SaltoLinea = document.createElement("br");
         CrearFormulario.appendChild(SaltoLinea);
-        SaltoLinea = document.createElement("br");
-        CrearFormulario.appendChild(SaltoLinea);
 
+		//Creamos el input y le asignamos atributos ,con este input lo que estamos haciendo es configurarlo como selecion multiple. Todo esto se lo aplicamos a la variable llamada "CrearFormulario".
         var inputCaracteristicas3 = document.createElement("input");
         inputCaracteristicas3.setAttribute("type", "checkbox");
         inputCaracteristicas3.setAttribute("class", "checks");
@@ -334,7 +332,7 @@ function div_insertar (){
         inputCaracteristicas3.setAttribute("name", "caracteristicas3");
         inputCaracteristicas3.setAttribute("value", "Bondadoso");
         CrearFormulario.appendChild(inputCaracteristicas3);
-
+		//Con esto etiquetamos la casilla con el nombre de la caracteristica que le hemos asignado
         var inputCaracteristicas3Name = document.createElement("label");
         inputCaracteristicas3Name.setAttribute("for", "caracteristicas3");
         CrearFormulario.appendChild(inputCaracteristicas3Name);
@@ -344,9 +342,8 @@ function div_insertar (){
         //Salto de linea
         SaltoLinea = document.createElement("br");
         CrearFormulario.appendChild(SaltoLinea);
-        SaltoLinea = document.createElement("br");
-        CrearFormulario.appendChild(SaltoLinea);
 
+		//Creamos el input y le asignamos atributos ,con este input lo que estamos haciendo es configurarlo como selecion multiple. Todo esto se lo aplicamos a la variable llamada "CrearFormulario".
         var inputCaracteristicas4 = document.createElement("input");
         inputCaracteristicas4.setAttribute("type", "checkbox");
         inputCaracteristicas4.setAttribute("class", "checks");
@@ -354,7 +351,7 @@ function div_insertar (){
         inputCaracteristicas4.setAttribute("name", "caracteristicas4");
         inputCaracteristicas4.setAttribute("value", "Inteligente");
         CrearFormulario.appendChild(inputCaracteristicas4);
-
+		//Con esto etiquetamos la casilla con el nombre de la caracteristica que le hemos asignado
         var inputCaracteristicas4Name = document.createElement("label");
         inputCaracteristicas4Name.setAttribute("for", "caracteristicas4");
         CrearFormulario.appendChild(inputCaracteristicas4Name);
@@ -367,10 +364,12 @@ function div_insertar (){
         SaltoLinea = document.createElement("br");
         CrearFormulario.appendChild(SaltoLinea);
 
+		//Creamos la etiqueta label con el nombre a mostrar "Imagen" y esto se lo aplicamos a la variable "CrearFormulario"
         var tituloNombre = document.createElement("label");
         var tituloNombreContenido = document.createTextNode("Imagen");
         CrearFormulario.appendChild(tituloNombre);
         tituloNombre.appendChild(tituloNombreContenido);
+		//Creamos un input donde le asignamos unos atributos y todo esto se lo aplicamos a la variable "CrearFormulario"		
         var inputImagen = document.createElement("input");
         inputImagen.setAttribute("type", "file");
         inputImagen.setAttribute("id", "imagen");
@@ -382,7 +381,7 @@ function div_insertar (){
         SaltoLinea = document.createElement("br");
         CrearFormulario.appendChild(SaltoLinea);
         
-        /*En el caso de que estemos modificando un personaje, los inputs se rellenarán
+          /*En el caso de que estemos modificando un personaje, los inputs se rellenarán
         con los valores de dicho personaje*/
 
         if (idTabla!=undefined){
@@ -421,8 +420,6 @@ function div_insertar (){
                 inputRolSanador.setAttribute("selected", "selected");
             }
         }
-        
-    
         
     var BotonCrear = document.createElement("button");
     BotonCrear.innerHTML=("Crear Personaje"); 
