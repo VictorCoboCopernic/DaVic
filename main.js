@@ -109,8 +109,9 @@ taula.appendChild(tabla);
         eval('r' + (i+1) + '_6c').setAttribute("width", "75");
         eval('r' + (i+1) +'_6c').setAttribute("src", campeones[i].imagen);
         eval('r' + (i+1) + '_6c').addEventListener ("dblclick", function() {
-            campeones[i].imagen = "img/Desconocido.jpg";
-            updateTabla();
+            delete campeones[i].imagen;
+            eval('r' + (i+1) + '_6').removeChild(eval('r' + (i+1) + '_6c'));
+            
          });
         
             
@@ -333,6 +334,30 @@ function div_insertar (){
             inputTitulo.setAttribute("value", campeones[idTabla].titulo);
             inputHp.setAttribute("value", campeones[idTabla].HP);
             NewImagen = campeones[idTabla].imagen
+            if(campeones[idTabla].caracteristicas.includes("Fuerte")){
+                inputCaracteristicas1.setAttribute("checked", "checked");
+            }
+            if(campeones[idTabla].caracteristicas.includes("Agil")){
+                inputCaracteristicas2.setAttribute("checked", "checked");
+            }
+            if(campeones[idTabla].caracteristicas.includes("Bondadoso")){
+                inputCaracteristicas3.setAttribute("checked", "checked");
+            }
+            if(campeones[idTabla].caracteristicas.includes("Inteligente")){
+                inputCaracteristicas4.setAttribute("checked", "checked");
+            }
+            if(campeones[idTabla].rol == "Daño"){
+                inputRolDaño.setAttribute("selected", "selected");
+            }
+            if(campeones[idTabla].rol == "Flanco"){
+                inputRolFlanco.setAttribute("selected", "selected");
+            }
+            if(campeones[idTabla].rol == "Tanque"){
+                inputRolTanque.setAttribute("selected", "selected");
+            }
+            if(campeones[idTabla].rol == "Sanador"){
+                inputRolSanador.setAttribute("selected", "selected");
+            }
         }
         
     
