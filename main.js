@@ -1,3 +1,4 @@
+//Creamos nuevo array donde guardaremos todos los objetos JSON que el usuario vaya creando a traves del formulario que nosotros hemos creado 
 let campeones = [
     {
         id: 1,
@@ -46,12 +47,12 @@ let campeones = [
     }, 
 ];
 
-let idnum = 5
+let idnum = 5//Variable; contador de la id que empieza por el 5 y se ira incrementado cada vez que se crea un nuevo personaje
 
-var taula = document.getElementById("taula");
-var insertar = document.getElementById("insertar");
-var actualizar = document.getElementById("actualizar");
-var tabla = document.createElement("table");
+var taula = document.getElementById("taula");//Variable; donde vamos a mostrar el contenido que hay dentro del "DIV TAULA"
+var insertar = document.getElementById("insertar");//Variable; donde vamos a mostrar el contenido que hay dentro de "DIV INSERTAR"
+var actualizar = document.getElementById("actualizar");//Variable; donde vamos a mostrar el contenido que hay dentro de "DIV INSERTAR"
+var tabla = document.createElement("table");//Variable; donde mostramos la tabla que vamos a crear
 
 /*Salto de linea entre la tabla y el boton crear nuevo personaje*/
 var SaltoLinea = document.createElement("br");
@@ -67,15 +68,17 @@ updateTabla();
 /*------------------------------------------------------*/
 function updateTabla (){
     
-taula.appendChild(tabla);
+taula.appendChild(tabla);//Agregamos al "DIV TAULA" el contenido que vamos a crear en la variable tabla 
 
+//Este bucle va borrando el ultimo hijo de la tabla hasta que no queda ninguno
   while (tabla.lastElementChild) {
     tabla.removeChild(tabla.lastElementChild);
       
   }
     
-    let contador = campeones.length;
+    let contador = campeones.length;//Variable; lo que estamos haciendo es contar todos los objetos JSON que tiene nuestro array
     
+//Creamos las casillas de latabla que vamosa a utilizar 	
     for (let i = 0; i < (contador+1); i++){
         eval('var r' + i + '= document.createElement("tr");');
         tabla.appendChild(eval('r'+i));
@@ -85,7 +88,8 @@ taula.appendChild(tabla);
         }
         
     }
-
+	
+//Creamos los titulos de la tabla que vamos a mostrar en cada fila 
     var r0_0c = document.createTextNode("ID");
     var r0_1c = document.createTextNode("NOMBRE");
     var r0_2c = document.createTextNode("TITULO");
@@ -133,7 +137,7 @@ taula.appendChild(tabla);
             updateTabla();
         });
     }
-
+	//Rellenamos la tabla con los contenidos que hemos creado 
     for (let i = 0; i < (contador+1); i++){
         for (let j = 0; j < 9; j++){
             eval('r' + i +'_' + j).appendChild(eval('r' + i + '_' + j + 'c'));
@@ -141,16 +145,17 @@ taula.appendChild(tabla);
     }
 
 
-
+//Le aplicamos un salto de linea al "DIV TABLA", este salto de linea se refleja entre la tabla y el boton llamado "Nuevo Personaje"
 taula.appendChild(SaltoLinea);
 
-
+//Añadimos dentro del " DIV TAULA " el boton "Nuevo Personaje" que nos mostrara un formulario en el "DIV INSERTAR"
 taula.appendChild(NuevoPersonajeBoton);   
 NuevoPersonajeBoton.innerHTML=("Nuevo Personaje"); 
 NuevoPersonajeBoton.addEventListener ("click", div_insertar);
 
 }
 
+//En el "DIV INSERTAR" creamos la etiqueta form , que se le va aplicar al div insertar
 function div_insertar (){
     var CrearFormulario = document.createElement("form");
     insertar.appendChild(CrearFormulario);
@@ -163,50 +168,63 @@ function div_insertar (){
                     /*Formulario*/
 /*------------------------------------------------------*/
     
-
+/*Esto si puedes comentalo victor */
     function formulario (CrearFormulario, idTabla){
         var NewImagen="";
         
         while (taula.lastElementChild) {
             taula.removeChild(taula.lastElementChild);
         }
-        var actualizar = document.getElementById("actualizar");
+        var actualizar = document.getElementById("actualizar");//
+		
+		
+		
+		//Creamos la etiqueta label, donde le pondremos "nombre " que sera como se mostrara en el formulario y esto se le va aplicar a la variable "CrearFormulario y tituloNombre"			
         var tituloNombre = document.createElement("label");
         var tituloNombreContenido = document.createTextNode("Nombre");
         CrearFormulario.appendChild(tituloNombre);
         tituloNombre.appendChild(tituloNombreContenido);
+		//Le asignamos los atribitus necesarios a la etiqueta label en este caso se le asignara a "nombre"		
         var inputNombre = document.createElement("input");
         inputNombre.setAttribute("type", "text");
         inputNombre.setAttribute("id", "nombre");
         CrearFormulario.appendChild(inputNombre);
-
+		
+		//Salto de linea
         var SaltoLinea = document.createElement("br");
         CrearFormulario.appendChild(SaltoLinea);
 
+		//Creamos la etiqueta label con el nombre a mostrar"titulo" y esto se lo aplicamos a la variable "CrearFormulario"
         var tituloNombre = document.createElement("label");
         var tituloNombreContenido = document.createTextNode("Titulo");
         CrearFormulario.appendChild(tituloNombre);
         tituloNombre.appendChild(tituloNombreContenido);
+		//Creamos un input donde le asignamos unos atributos y todo esto se lo aplicamos a la variable "CrearFormulario"		
         var inputTitulo = document.createElement("input");
         inputTitulo.setAttribute("type", "text");
         inputTitulo.setAttribute("id", "titulo");
         CrearFormulario.appendChild(inputTitulo);
 
-        var SaltoLinea = document.createElement("br");
+		//Salto de linea
+        SaltoLinea = document.createElement("br");
         CrearFormulario.appendChild(SaltoLinea);
 
+		//Creamos la etiqueta label con el nombre a mostrar"Hp" y esto se lo aplicamos a la variable "CrearFormulario"
         var tituloNombre = document.createElement("label");
         var tituloNombreContenido = document.createTextNode("Hp");
         CrearFormulario.appendChild(tituloNombre);
         tituloNombre.appendChild(tituloNombreContenido);
+		//Creamos un input donde le asignamos unos atributos y todo esto se lo aplicamos a la variable "CrearFormulario"		
         var inputHp = document.createElement("input");
         inputHp.setAttribute("type", "number");
         inputHp.setAttribute("id", "hp");
         CrearFormulario.appendChild(inputHp);
 
-        var SaltoLinea = document.createElement("br");
+		//Salto de linea
+        SaltoLinea = document.createElement("br");
         CrearFormulario.appendChild(SaltoLinea);
 
+		//Creamos la etiqueta label con el nombre a mostrar"Rol" y esto se lo aplicamos a la variable "CrearFormulario"
         var tituloNombre = document.createElement("label");
         var tituloNombreContenido = document.createTextNode("Rol");
         CrearFormulario.appendChild(tituloNombre);
@@ -474,7 +492,3 @@ function div_insertar (){
              
     })
     }; 
-
-/*------------------------------------------------------*/
-                    /*Div Actualizar*/
-/*------------------------------------------------------*/
