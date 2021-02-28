@@ -101,6 +101,8 @@ taula.appendChild(tabla);//Agregamos al "DIV TAULA" el contenido que vamos a cre
     var r0_8c = document.createTextNode("ELIMINAR");
 
     for (let i = 0; i < contador; i++){
+
+        //Creamos el contenido que irá en las tablas a partir de los valores del array
         
         eval('var r' + (i+1) + '_0c = document.createTextNode(campeones[i].id);');
         eval('var r' + (i+1) + '_1c = document.createTextNode(campeones[i].nombre);');
@@ -112,12 +114,15 @@ taula.appendChild(tabla);//Agregamos al "DIV TAULA" el contenido que vamos a cre
         eval('r' + (i+1) + '_6').appendChild(eval('r' + (i+1) + '_6c'));
         eval('r' + (i+1) + '_6c').setAttribute("width", "75");
         eval('r' + (i+1) +'_6c').setAttribute("src", campeones[i].imagen);
+        //En el caso de que se haga doble click en unaimagen, esta será eliminada del array y de la tabla
         eval('r' + (i+1) + '_6c').addEventListener ("dblclick", function() {
             delete campeones[i].imagen;
             eval('r' + (i+1) + '_6').removeChild(eval('r' + (i+1) + '_6c'));
             
          });
         
+         /*Cuando le demos a un botón modificar, guardaremos el numero del personaje que
+        estamos modificando en idTabla y generaremos un formulario correspondiente a este.*/
             
         eval('var r' + (i+1) + '_7c = document.createElement("button");');
         eval('r' + (i+1) + '_7c').innerHTML = "Modificar";
@@ -129,6 +134,9 @@ taula.appendChild(tabla);//Agregamos al "DIV TAULA" el contenido que vamos a cre
             formulario(CrearFormulario, idTabla);
         });  
         
+        /*El boton eliminar eliminará el personaje correspondiente del array y volverá
+        a cargar la tabla*/
+
         eval('var r' + (i+1) + '_8c = document.createElement("button");');
         eval('r' + (i+1) + '_8c').innerHTML = "Eliminar";
         eval('r' + (i+1) + '_8c').id=i;
