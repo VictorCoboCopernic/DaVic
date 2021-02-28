@@ -201,6 +201,8 @@ function div_insertar (){
 		//Salto de linea
         var SaltoLinea = document.createElement("br");
         CrearFormulario.appendChild(SaltoLinea);
+        SaltoLinea = document.createElement("br");
+        CrearFormulario.appendChild(SaltoLinea);
 
 		//Creamos la etiqueta label con el nombre a mostrar"titulo" y esto se lo aplicamos a la variable "CrearFormulario"
         var tituloNombre = document.createElement("label");
@@ -216,8 +218,10 @@ function div_insertar (){
 		//Salto de linea
         SaltoLinea = document.createElement("br");
         CrearFormulario.appendChild(SaltoLinea);
-
-		//Creamos la etiqueta label con el nombre a mostrar"Hp" y esto se lo aplicamos a la variable "CrearFormulario"
+        SaltoLinea = document.createElement("br");
+        CrearFormulario.appendChild(SaltoLinea);
+		
+        //Creamos la etiqueta label con el nombre a mostrar"Hp" y esto se lo aplicamos a la variable "CrearFormulario"
         var tituloNombre = document.createElement("label");
         var tituloNombreContenido = document.createTextNode("Hp");
         CrearFormulario.appendChild(tituloNombre);
@@ -229,6 +233,8 @@ function div_insertar (){
         CrearFormulario.appendChild(inputHp);
 
 		//Salto de linea
+        SaltoLinea = document.createElement("br");
+        CrearFormulario.appendChild(SaltoLinea);
         SaltoLinea = document.createElement("br");
         CrearFormulario.appendChild(SaltoLinea);
 
@@ -265,7 +271,10 @@ function div_insertar (){
         var inputRolSanadorContenido = document.createTextNode("Sanador");
         inputRolSanador.appendChild(inputRolSanadorContenido);
 
-        var SaltoLinea = document.createElement("br");
+        //Salto de linea
+        SaltoLinea = document.createElement("br");
+        CrearFormulario.appendChild(SaltoLinea);
+        SaltoLinea = document.createElement("br");
         CrearFormulario.appendChild(SaltoLinea);
 
         var tituloNombre = document.createElement("label");
@@ -273,7 +282,10 @@ function div_insertar (){
         CrearFormulario.appendChild(tituloNombre);
         tituloNombre.appendChild(tituloNombreContenido);
 
-        var SaltoLinea = document.createElement("br");
+        //Salto de linea
+        SaltoLinea = document.createElement("br");
+        CrearFormulario.appendChild(SaltoLinea);
+        SaltoLinea = document.createElement("br");
         CrearFormulario.appendChild(SaltoLinea);
 
         var inputCaracteristicas1 = document.createElement("input");
@@ -290,7 +302,10 @@ function div_insertar (){
         var inputCaracteristicas1Contenido = document.createTextNode("Fuerte");
         inputCaracteristicas1Name.appendChild(inputCaracteristicas1Contenido);
 
-        var SaltoLinea = document.createElement("br");
+        //Salto de linea
+        SaltoLinea = document.createElement("br");
+        CrearFormulario.appendChild(SaltoLinea);
+        SaltoLinea = document.createElement("br");
         CrearFormulario.appendChild(SaltoLinea);
 
         var inputCaracteristicas2 = document.createElement("input");
@@ -307,7 +322,10 @@ function div_insertar (){
         var inputCaracteristicas2Contenido = document.createTextNode("Agil");
         inputCaracteristicas2Name.appendChild(inputCaracteristicas2Contenido);
 
-        var SaltoLinea = document.createElement("br");
+        //Salto de linea
+        SaltoLinea = document.createElement("br");
+        CrearFormulario.appendChild(SaltoLinea);
+        SaltoLinea = document.createElement("br");
         CrearFormulario.appendChild(SaltoLinea);
 
         var inputCaracteristicas3 = document.createElement("input");
@@ -323,7 +341,11 @@ function div_insertar (){
         CrearFormulario.appendChild(inputCaracteristicas3Name);
         var inputCaracteristicas3Contenido = document.createTextNode("Bondadoso");
         inputCaracteristicas3Name.appendChild(inputCaracteristicas3Contenido);
-        var SaltoLinea = document.createElement("br");
+        
+        //Salto de linea
+        SaltoLinea = document.createElement("br");
+        CrearFormulario.appendChild(SaltoLinea);
+        SaltoLinea = document.createElement("br");
         CrearFormulario.appendChild(SaltoLinea);
 
         var inputCaracteristicas4 = document.createElement("input");
@@ -339,8 +361,11 @@ function div_insertar (){
         CrearFormulario.appendChild(inputCaracteristicas4Name);
         var inputCaracteristicas4Contenido = document.createTextNode("Inteligente");
         inputCaracteristicas4Name.appendChild(inputCaracteristicas4Contenido);
-
-        var SaltoLinea = document.createElement("br");
+        
+        //Salto de linea
+        SaltoLinea = document.createElement("br");
+        CrearFormulario.appendChild(SaltoLinea);
+        SaltoLinea = document.createElement("br");
         CrearFormulario.appendChild(SaltoLinea);
 
         var tituloNombre = document.createElement("label");
@@ -352,7 +377,10 @@ function div_insertar (){
         inputImagen.setAttribute("id", "imagen");
         CrearFormulario.appendChild(inputImagen);
 
-        var SaltoLinea = document.createElement("br");
+        //Salto de linea
+        SaltoLinea = document.createElement("br");
+        CrearFormulario.appendChild(SaltoLinea);
+        SaltoLinea = document.createElement("br");
         CrearFormulario.appendChild(SaltoLinea);
         
         /*En el caso de que estemos modificando un personaje, los inputs se rellenarán
