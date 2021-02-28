@@ -355,11 +355,18 @@ function div_insertar (){
         var SaltoLinea = document.createElement("br");
         CrearFormulario.appendChild(SaltoLinea);
         
+        /*En el caso de que estemos modificando un personaje, los inputs se rellenarán
+        con los valores de dicho personaje*/
+
         if (idTabla!=undefined){
+            /*En el caso de Nombre, Titulo, HP e imagen aplica directamente los valores
+            de los atributos*/
             inputNombre.setAttribute("value", campeones[idTabla].nombre);
             inputTitulo.setAttribute("value", campeones[idTabla].titulo);
             inputHp.setAttribute("value", campeones[idTabla].HP);
             NewImagen = campeones[idTabla].imagen
+            /*En el caso de las caracteristicas, marcará como checked aquellas que pueda
+            encontrar en el string*/
             if(campeones[idTabla].caracteristicas.includes("Fuerte")){
                 inputCaracteristicas1.setAttribute("checked", "checked");
             }
@@ -372,6 +379,8 @@ function div_insertar (){
             if(campeones[idTabla].caracteristicas.includes("Inteligente")){
                 inputCaracteristicas4.setAttribute("checked", "checked");
             }
+            /*En el caso del rol, seleccionará aquel que pueda encontrar en el
+            string*/
             if(campeones[idTabla].rol == "Daño"){
                 inputRolDaño.setAttribute("selected", "selected");
             }
