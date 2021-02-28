@@ -430,7 +430,8 @@ function div_insertar (){
         var NewNombre = document.getElementById("nombre").value;
         var NewTitulo = document.getElementById("titulo").value;
         var NewRol = document.getElementById("rol").value;
-            
+            /*Comprueba si alguno de de los campos obligatorios esta vacio, si se da el caso comprueba
+            cada uno de ellos y le pone un borde rojo o negro depediendo de si esta relleno o no*/
         if(NewNombre=="" || NewTitulo=="" || NewRol==""){
             
             if(NewNombre==""){
@@ -533,7 +534,8 @@ function div_insertar (){
     });
     CrearFormulario.appendChild(BotonCrear);
 
-
+    /*Al cancelar el formulario vaciamos los divs insertar y actualizar y volvemos a generar
+    la tabla sin tener en cuenta el contenido del formulario*/
     
     var BotonCancelar = document.createElement("button");
     BotonCancelar.innerHTML=("Cancelar"); 
