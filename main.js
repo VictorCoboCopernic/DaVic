@@ -176,9 +176,8 @@ function div_insertar (){
                     /*Formulario*/
 /*------------------------------------------------------*/
     
-/*Esto si puedes comentalo victor */
+
     function formulario (CrearFormulario, idTabla){
-        
         //Declaramos NewImagen para utilizarlo después
         var NewImagen="";
         
@@ -186,8 +185,6 @@ function div_insertar (){
         while (taula.lastElementChild) {
             taula.removeChild(taula.lastElementChild);
         }
-        
-		
 		
 		//Creamos la etiqueta label, donde le pondremos "nombre " que sera como se mostrara en el formulario y esto se le va aplicar a la variable "CrearFormulario y tituloNombre"			
         var tituloNombre = document.createElement("label");
@@ -245,17 +242,16 @@ function div_insertar (){
         var tituloNombreContenido = document.createTextNode("Rol");
         CrearFormulario.appendChild(tituloNombre);
         tituloNombre.appendChild(tituloNombreContenido);
-
+		//Creamos un input donde le asignamos uno atributo y este se lo aplicamos a la variable "CrearFormulario"	
         var inputRol = document.createElement("select");
         inputRol.setAttribute("id", "rol");
         CrearFormulario.appendChild(inputRol);
-
+		//Creamos un input en blanco por defecto que es como se muestra en el formulario 
         var inputRolVacio = document.createElement("option");
         inputRol.appendChild(inputRolVacio);
         var inputRolVacioContenido = document.createTextNode("");
         inputRolVacio.appendChild(inputRolVacioContenido);
-
-
+		//Creamos un input menu desplegable con 4 opciones, pero hay que sumar tambien el espacio en blaco en total tenemos 5 opciones 
         var inputRolDaño = document.createElement("option");
         inputRol.appendChild(inputRolDaño);
         var inputRolDañoContenido = document.createTextNode("Daño");
@@ -278,7 +274,8 @@ function div_insertar (){
         CrearFormulario.appendChild(SaltoLinea);
         SaltoLinea = document.createElement("br");
         CrearFormulario.appendChild(SaltoLinea);
-
+		
+        //Creamos la etiqueta label con el nombre a mostrar"Hp" y esto se lo aplicamos a la variable "CrearFormulario"		
         var tituloNombre = document.createElement("label");
         var tituloNombreContenido = document.createTextNode("Caracteristicas");
         CrearFormulario.appendChild(tituloNombre);
