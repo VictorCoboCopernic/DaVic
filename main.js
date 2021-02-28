@@ -1,3 +1,4 @@
+//Creamos nuestro array donde vamos a guardar los objetos JSON y a la vez iremos alvergando los demas personajes que se vayan creando a traves del formulario
 let campeones = [
     {
         id: 1,
@@ -46,10 +47,10 @@ let campeones = [
     }, 
 ];
 
-let idnum = 5
+let idnum = 5//Variable; contador de la id que empieza por el 5 y se ira incrementado cada vez que se crea un nuevo personaje
 
-var taula = document.getElementById("taula");
-var tabla = document.createElement("table");
+var taula = document.getElementById("taula");//Variable; donde vamos a mostrar el contenido que hay dentro del "DIV TAULA"
+var tabla = document.createElement("table");//Variable; donde mostramos la tabla que vamos a crear
 
 /*Salto de linea entre la tabla y el boton crear nuevo personaje*/
 var SaltoLinea = document.createElement("br");
