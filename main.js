@@ -178,13 +178,15 @@ function div_insertar (){
     
 /*Esto si puedes comentalo victor */
     function formulario (CrearFormulario, idTabla){
+        
+        //Declaramos NewImagen para utilizarlo después
         var NewImagen="";
         
+        //Borramos la tabla con un bucle que elimina sus hijos
         while (taula.lastElementChild) {
             taula.removeChild(taula.lastElementChild);
         }
-        var actualizar = document.getElementById("actualizar");//
-		
+        
 		
 		
 		//Creamos la etiqueta label, donde le pondremos "nombre " que sera como se mostrara en el formulario y esto se le va aplicar a la variable "CrearFormulario y tituloNombre"			
