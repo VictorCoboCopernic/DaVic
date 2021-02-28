@@ -427,10 +427,14 @@ function div_insertar (){
             
         }else{
             
+            //Aplica el valor de HP en NewHP, en el caso de que sea nulo lo deja vacio
             var NewHp = document.getElementById("hp").value;
             if (NewHp==null){
                 NewHp="";
             }
+            
+            //Recorre las caracteristicas que tenemos marcadas y crea un String con ellas
+            
             var checks = document.getElementsByClassName('checks');
             var NewCaracteristicas = '';
 
@@ -439,8 +443,12 @@ function div_insertar (){
                 NewCaracteristicas += checks[i].value + " ";
                 }
             }
-
+            
+            //Esto es en el caso de que creemos un personaje nuevo
+            
             if (idTabla==undefined){
+            /*Crea una variable con la imagen que hemos creado, en el caso de que no
+            encuentre ninguna, aplica la predeterminada*/
             try{
             NewImagen = document.getElementById("imagen").files[0].name;
             }catch(err){}
@@ -448,6 +456,8 @@ function div_insertar (){
                 NewImagen="Desconocido.jpg";
             }
             
+            //Crea un nuevo personaje con las caracteristicas definidas
+
                 idnum++;
                 campeones.push ({
                     id: idnum,
@@ -459,10 +469,15 @@ function div_insertar (){
                     imagen: "img/" + NewImagen
                 });
             }else{
+
+            //Si se ha modificado la imagen, la variable se queda con la nueva selección
+
                 if (document. getElementById("imagen"). value. length != 0){
                     NewImagen = "img/" + document.getElementById("imagen").files[0].name;
                 }
                     
+                //Modifica el personaje con las caracteristicas definidas
+
                 numidTabla = parseInt(idTabla);
                 campeones[idTabla] = ({
                     id: (numidTabla+1),
@@ -474,6 +489,9 @@ function div_insertar (){
                     imagen: NewImagen
                 });
             }
+
+            //Vacia los divs de insertar y eliminar y genera la tabla
+
             while (insertar.lastElementChild) {
                 insertar.removeChild(insertar.lastElementChild);
             }
