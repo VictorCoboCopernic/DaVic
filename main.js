@@ -105,16 +105,20 @@ taula.appendChild(tabla);
         eval('var r' + (i+1) + '_4c = document.createTextNode(campeones[i].rol);');
         eval('var r' + (i+1) + '_5c = document.createTextNode(campeones[i].caracteristicas);');
         eval('var r' + (i+1) + '_6c = document.createElement("img");');
-        
         eval('r' + (i+1) + '_6').appendChild(eval('r' + (i+1) + '_6c'));
         eval('r' + (i+1) + '_6c').setAttribute("width", "75");
         eval('r' + (i+1) +'_6c').setAttribute("src", campeones[i].imagen);
+        eval('r' + (i+1) + '_6c').addEventListener ("dblclick", function() {
+            campeones[i].imagen = "img/Desconocido.jpg";
+            updateTabla();
+         });
         
+            
         eval('var r' + (i+1) + '_7c = document.createElement("button");');
         eval('r' + (i+1) + '_7c').innerHTML = "Modificar";
         eval('r' + (i+1) + '_7c').id=i;
         eval('r' + (i+1) + '_7c').addEventListener ("click", function() {
-            var idTabla = this.id
+            let idTabla = this.id
             var CrearFormulario = document.createElement("form");
             actualizar.appendChild(CrearFormulario);
             formulario(CrearFormulario, idTabla);
@@ -149,8 +153,7 @@ NuevoPersonajeBoton.addEventListener ("click", div_insertar);
 function div_insertar (){
     var CrearFormulario = document.createElement("form");
     insertar.appendChild(CrearFormulario);
-    formulario(CrearFormulario);
-    
+    formulario(CrearFormulario);    
 }
     
    
@@ -161,7 +164,7 @@ function div_insertar (){
     
 
     function formulario (CrearFormulario, idTabla){
-        
+        var NewImagen="";
         
         while (taula.lastElementChild) {
             taula.removeChild(taula.lastElementChild);
@@ -196,7 +199,7 @@ function div_insertar (){
         CrearFormulario.appendChild(tituloNombre);
         tituloNombre.appendChild(tituloNombreContenido);
         var inputHp = document.createElement("input");
-        inputHp.setAttribute("type", "text");
+        inputHp.setAttribute("type", "number");
         inputHp.setAttribute("id", "hp");
         CrearFormulario.appendChild(inputHp);
 
@@ -329,9 +332,11 @@ function div_insertar (){
             inputNombre.setAttribute("value", campeones[idTabla].nombre);
             inputTitulo.setAttribute("value", campeones[idTabla].titulo);
             inputHp.setAttribute("value", campeones[idTabla].HP);
+            NewImagen = campeones[idTabla].imagen
         }
         
     
+        
     var BotonCrear = document.createElement("button");
     BotonCrear.innerHTML=("Crear Personaje"); 
     BotonCrear.addEventListener ("click", function() { 
@@ -359,6 +364,7 @@ function div_insertar (){
                 inputRol.setAttribute("style", "");
             }
             
+            
         }else{
             
             var NewHp = document.getElementById("hp").value;
@@ -374,22 +380,40 @@ function div_insertar (){
                 }
             }
 
+            if (idTabla==undefined){
             try{
-            var NewImagen = document.getElementById("imagen").files[0].name;
+            NewImagen = document.getElementById("imagen").files[0].name;
             }catch(err){}
             if (document. getElementById("imagen"). value. length == 0){
                 NewImagen="Desconocido.jpg";
             }
-            idnum++;
-            campeones.push ({
-                id: idnum,
-                nombre: NewNombre,
-                titulo: NewTitulo,
-                HP: NewHp,
-                rol: NewRol,
-                caracteristicas: NewCaracteristicas,
-                imagen: "img/" + NewImagen
-            });
+            
+                idnum++;
+                campeones.push ({
+                    id: idnum,
+                    nombre: NewNombre,
+                    titulo: NewTitulo,
+                    HP: NewHp,
+                    rol: NewRol,
+                    caracteristicas: NewCaracteristicas,
+                    imagen: "img/" + NewImagen
+                });
+            }else{
+                if (document. getElementById("imagen"). value. length != 0){
+                    NewImagen = "img/" + document.getElementById("imagen").files[0].name;
+                }
+                    
+                numidTabla = parseInt(idTabla);
+                campeones[idTabla] = ({
+                    id: (numidTabla+1),
+                    nombre: NewNombre,
+                    titulo: NewTitulo,
+                    HP: NewHp,
+                    rol: NewRol,
+                    caracteristicas: NewCaracteristicas,
+                    imagen: NewImagen
+                });
+            }
             while (insertar.lastElementChild) {
                 insertar.removeChild(insertar.lastElementChild);
             }
